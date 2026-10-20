@@ -1,0 +1,184 @@
+.circular-carousel {
+  --cc-fade: #3a1828;
+  --cc-radius: 10px;
+  --cc-inner: 0.4;
+  --cc-card-w: 220px;
+  --cc-card-h: 220px;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  outline: none;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.circular-carousel[data-axis="x"] {
+  touch-action: pan-x;
+}
+
+.circular-carousel[data-dragging] {
+  cursor: grabbing;
+}
+
+.circular-carousel:focus-visible {
+  outline: 2px solid var(--rose-deep, #c9758e);
+  outline-offset: -3px;
+  border-radius: 32px;
+}
+
+.circular-carousel__view {
+  position: absolute;
+  inset: 0;
+}
+
+.circular-carousel__stage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  perspective: 1400px;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+}
+
+.circular-carousel__camera,
+.circular-carousel__ring {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+}
+
+.circular-carousel__card {
+  position: absolute;
+  left: calc(var(--cc-card-w) / -2);
+  top: calc(var(--cc-card-h) / -2);
+  width: var(--cc-card-w);
+  height: var(--cc-card-h);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.circular-carousel[data-clickable] .circular-carousel__card {
+  cursor: pointer;
+}
+
+.circular-carousel[data-dragging] .circular-carousel__card {
+  cursor: grabbing;
+}
+
+.circular-carousel__tile {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.circular-carousel__frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--cc-radius);
+  background: transparent;
+  box-shadow: none;
+  transition: box-shadow 0.35s ease, border-radius 0.35s ease;
+}
+
+.circular-carousel__photo {
+  position: absolute;
+  display: block;
+  max-width: none;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.circular-carousel__photo--leaving {
+  animation: cc-leave 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.circular-carousel__inner {
+  position: absolute;
+  inset: 0;
+  background: #2b1522;
+  opacity: var(--cc-inner);
+}
+
+.circular-carousel__shade {
+  position: absolute;
+  inset: 0;
+  background: var(--cc-fade);
+  opacity: var(--cc-depth, 0);
+}
+
+@keyframes cc-leave {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+}
+
+.circular-carousel__live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  border: 0;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .circular-carousel__photo--leaving {
+    animation: none;
+  }
+
+  .circular-carousel,
+  .circular-carousel__card {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
+
+@keyframes carousel-entrance {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes card-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.circular-carousel__card {
+  animation: card-fade 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+}

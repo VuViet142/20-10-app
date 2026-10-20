@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Trái tim hồng">
+  <defs>
+    <linearGradient id="heartFill" x1="18%" y1="4%" x2="82%" y2="100%">
+      <stop offset="0" stop-color="#FFDCE9" />
+      <stop offset=".5" stop-color="#F8A9C8" />
+      <stop offset="1" stop-color="#E0709F" />
+    </linearGradient>
+    <radialGradient id="heartLight" cx=".33" cy=".26" r=".55">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".9" />
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <path
+    d="M100 174C91 166 32 128 32 86c0-25 18-43 41-43 13 0 22 6 27 13 5-7 14-13 27-13 23 0 41 18 41 43 0 42-59 80-68 88Z"
+    fill="url(#heartFill)"
+    stroke="#D9649A"
+    stroke-opacity=".28"
+    stroke-width="2"
+  />
+  <ellipse cx="72" cy="72" rx="26" ry="18" fill="url(#heartLight)" transform="rotate(-28 72 72)" />
+  <path d="M62 62c8-5 17-5 24-1" stroke="#FFF5F8" stroke-opacity=".75" stroke-width="3" stroke-linecap="round" fill="none" />
+</svg>

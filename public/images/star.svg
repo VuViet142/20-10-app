@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Ngôi sao lấp lánh">
+  <defs>
+    <linearGradient id="spark" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0" stop-color="#FFF6DA" />
+      <stop offset=".52" stop-color="#F4D18B" />
+      <stop offset="1" stop-color="#D9A34E" />
+    </linearGradient>
+  </defs>
+  <path
+    d="M100 8c9 56 36 83 92 92-56 9-83 36-92 92-9-56-36-83-92-92 56-9 83-36 92-92Z"
+    fill="url(#spark)"
+    stroke="#C58A3D"
+    stroke-opacity=".25"
+    stroke-width="1.6"
+  />
+  <circle cx="100" cy="100" r="12" fill="#FFFBEF" opacity=".7" />
+  <circle cx="152" cy="52" r="5" fill="#F4D18B" opacity=".85" />
+  <circle cx="44" cy="146" r="3.5" fill="#F4D18B" opacity=".7" />
+</svg>

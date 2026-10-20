@@ -1,0 +1,357 @@
+.dream-bg {
+  --mx: 0;
+  --my: 0;
+
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background-color: #fce1ee;
+  background-image: radial-gradient(
+      70% 50% at 50% 0%,
+      rgba(255, 255, 255, 0.96),
+      rgba(255, 255, 255, 0) 58%
+    ),
+    radial-gradient(
+      56% 46% at 88% 74%,
+      rgba(255, 138, 180, 0.4),
+      rgba(255, 138, 180, 0) 68%
+    ),
+    radial-gradient(
+      52% 44% at 8% 66%,
+      rgba(255, 170, 199, 0.36),
+      rgba(255, 170, 199, 0) 66%
+    ),
+    radial-gradient(
+      46% 40% at 74% 12%,
+      rgba(255, 222, 178, 0.34),
+      rgba(255, 222, 178, 0) 70%
+    ),
+    radial-gradient(
+      40% 36% at 24% 18%,
+      rgba(196, 158, 250, 0.28),
+      rgba(196, 158, 250, 0) 72%
+    ),
+    radial-gradient(
+      78% 36% at 50% 106%,
+      rgba(255, 255, 255, 0.55),
+      rgba(255, 255, 255, 0) 72%
+    ),
+    linear-gradient(168deg, #fffafd 0%, #ffe8f1 30%, #ffd0e2 62%, #f9abc8 100%);
+}
+
+/* ---------- Aurora: slow colour ribbons behind the ring ---------- */
+
+.dream-aurora {
+  position: absolute;
+  left: -14%;
+  top: -24%;
+  width: 128%;
+  height: 104%;
+  border-radius: 50%;
+  filter: blur(72px);
+  pointer-events: none;
+  will-change: transform;
+  mix-blend-mode: multiply;
+  background: conic-gradient(
+    from 0deg,
+    rgba(255, 95, 158, 0) 0deg,
+    rgba(255, 95, 158, 0.3) 52deg,
+    rgba(255, 143, 177, 0.26) 118deg,
+    rgba(255, 215, 154, 0.22) 178deg,
+    rgba(185, 140, 255, 0.24) 244deg,
+    rgba(255, 95, 158, 0) 360deg
+  );
+  animation: dream-aurora 28s linear infinite;
+}
+
+.dream-aurora--violet {
+  opacity: 0.34;
+  animation-duration: 38s;
+  animation-direction: reverse;
+  transform: scale(1.18) rotate(24deg);
+}
+
+.dream-aurora--gold {
+  opacity: 0.28;
+  animation-duration: 44s;
+  transform: scale(0.92) rotate(-18deg);
+  background: conic-gradient(
+    from 0deg,
+    rgba(255, 215, 154, 0) 0deg,
+    rgba(255, 215, 154, 0.28) 70deg,
+    rgba(255, 233, 196, 0.24) 140deg,
+    rgba(255, 143, 177, 0.2) 220deg,
+    rgba(255, 215, 154, 0) 360deg
+  );
+}
+
+.dream-shimmer {
+  position: absolute;
+  inset: -30%;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  will-change: transform;
+  background: linear-gradient(
+    104deg,
+    rgba(255, 255, 255, 0) 36%,
+    rgba(255, 255, 255, 0.5) 47%,
+    rgba(255, 214, 231, 0.3) 53%,
+    rgba(255, 255, 255, 0) 64%
+  );
+  animation: dream-sweep 12s ease-in-out infinite;
+}
+
+@keyframes dream-aurora {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+
+  to {
+    transform: rotate(360deg) scale(1.06);
+  }
+}
+
+@keyframes dream-sweep {
+  0%,
+  100% {
+    transform: translate3d(-16%, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(16%, 0, 0);
+  }
+}
+
+.dream-glow {
+  position: absolute;
+  top: -22%;
+  left: -10%;
+  right: -10%;
+  height: 96%;
+  z-index: 0;
+  background: radial-gradient(
+    58% 60% at 50% 22%,
+    rgba(255, 255, 255, 0.92),
+    rgba(255, 255, 255, 0) 70%
+  );
+  animation: dream-breathe 13s ease-in-out infinite;
+  pointer-events: none;
+}
+.dream-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transform: translate3d(
+    calc(var(--mx) * var(--depth, 0px)),
+    calc(var(--my) * var(--depth, 0px)),
+    0
+  );
+  will-change: transform;
+}
+
+.dream-layer--orbs {
+  z-index: 1;
+}
+
+.dream-hearts--far {
+  z-index: 2;
+}
+
+.dream-sparkles {
+  z-index: 3;
+}
+
+.dream-hearts--mid {
+  z-index: 4;
+}
+
+.dream-hearts--near {
+  z-index: 5;
+}
+
+.dream-orb {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(var(--orb-tint), var(--orb-alpha)) 0%,
+    rgba(var(--orb-tint), 0) 70%
+  );
+  transform: translate3d(-50%, -50%, 0);
+  animation: dream-float var(--float-dur) ease-in-out infinite;
+  will-change: transform;
+}
+
+.dream-heart {
+  position: absolute;
+  display: block;
+  opacity: 0;
+  filter: blur(var(--heart-blur));
+  animation: dream-rise var(--rise) linear var(--rise-delay) infinite;
+  will-change: transform, opacity;
+}
+
+.dream-heart__sway {
+  display: block;
+  width: 100%;
+  height: 100%;
+  animation: dream-sway var(--sway) ease-in-out var(--sway-delay) infinite
+    alternate;
+  will-change: transform;
+}
+
+.dream-heart svg,
+.dream-sparkle svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.dream-heart path {
+  fill: var(--heart-tint);
+}
+
+.dream-sparkle {
+  position: absolute;
+  display: block;
+  color: var(--spark-tint, #fff);
+  opacity: 0;
+  filter: drop-shadow(0 0 6px var(--spark-tint, #fff))
+    drop-shadow(0 0 12px var(--spark-tint, #fff));
+  transform: translate(-50%, -50%) scale(0.3);
+  animation: dream-twinkle var(--twinkle) ease-in-out var(--twinkle-delay)
+    infinite;
+  will-change: transform, opacity;
+}
+
+.dream-sparkle path {
+  fill: currentColor;
+}
+
+@keyframes dream-rise {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.9);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: var(--alpha);
+  }
+
+  55% {
+    opacity: var(--alpha);
+  }
+
+  88% {
+    opacity: calc(var(--alpha) * 0.55);
+  }
+
+  100% {
+    transform: translate3d(0, -124vh, 0) scale(1.06);
+    opacity: 0;
+  }
+}
+
+@keyframes dream-sway {
+  from {
+    transform: translate3d(calc(var(--sway-x) * -1), 0, 0)
+      rotate(calc(var(--rot) * -1));
+  }
+
+  to {
+    transform: translate3d(var(--sway-x), 0, 0) rotate(var(--rot));
+  }
+}
+
+@keyframes dream-float {
+  0%,
+  100% {
+    transform: translate3d(-50%, -50%, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(
+        calc(-50% + var(--float-x)),
+        calc(-50% + var(--float-y)),
+        0
+      )
+      scale(1.07);
+  }
+}
+
+@keyframes dream-breathe {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.045);
+  }
+}
+
+@keyframes dream-twinkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3) rotate(0deg);
+  }
+
+  35% {
+    opacity: var(--spark-alpha);
+    transform: translate(-50%, -50%) scale(1) rotate(25deg);
+  }
+
+  55% {
+    opacity: var(--spark-alpha);
+    transform: translate(-50%, -50%) scale(0.9) rotate(42deg);
+  }
+
+  80% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .dream-glow {
+    opacity: 0.8;
+  }
+
+  .dream-hearts--near {
+    display: none;
+  }
+}
+
+.orbit-page.is-reading .dream-glow,
+.orbit-page.is-reading .dream-orb,
+.orbit-page.is-reading .dream-heart,
+.orbit-page.is-reading .dream-heart__sway,
+.orbit-page.is-reading .dream-sparkle {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dream-glow,
+  .dream-aurora,
+  .dream-shimmer,
+  .dream-orb,
+  .dream-heart,
+  .dream-heart__sway,
+  .dream-sparkle {
+    animation: none;
+  }
+
+  .dream-aurora,
+  .dream-shimmer {
+    opacity: 0.5;
+  }
+
+  .dream-layer {
+    transform: none;
+  }
+}

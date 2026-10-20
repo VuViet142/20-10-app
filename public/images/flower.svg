@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Bông hoa hồng">
+  <defs>
+    <linearGradient id="petal" x1="30%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0" stop-color="#FFE3EE" />
+      <stop offset=".55" stop-color="#F8B4CF" />
+      <stop offset="1" stop-color="#E880AC" />
+    </linearGradient>
+    <radialGradient id="core" cx=".35" cy=".3" r=".75">
+      <stop offset="0" stop-color="#FFF3CF" />
+      <stop offset=".6" stop-color="#F2C976" />
+      <stop offset="1" stop-color="#D9A34E" />
+    </radialGradient>
+  </defs>
+  <g transform="translate(100 100)">
+    <g fill="url(#petal)" stroke="#D9649A" stroke-opacity=".22" stroke-width="1.5">
+      <ellipse cx="0" cy="-52" rx="27" ry="46" />
+      <ellipse cx="0" cy="-52" rx="27" ry="46" transform="rotate(72)" />
+      <ellipse cx="0" cy="-52" rx="27" ry="46" transform="rotate(144)" />
+      <ellipse cx="0" cy="-52" rx="27" ry="46" transform="rotate(216)" />
+      <ellipse cx="0" cy="-52" rx="27" ry="46" transform="rotate(288)" />
+    </g>
+    <circle r="25" fill="url(#core)" stroke="#C58A3D" stroke-opacity=".35" stroke-width="1.5" />
+    <circle r="15" fill="none" stroke="#C58A3D" stroke-opacity=".28" stroke-width="1.2" stroke-dasharray="2 4" />
+    <g fill="#B87A2F">
+      <circle cx="-6" cy="-7" r="2" />
+      <circle cx="7" cy="-4" r="2" />
+      <circle cx="-2" cy="6" r="2" />
+      <circle cx="9" cy="7" r="1.6" />
+      <circle cx="-10" cy="4" r="1.6" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" role="img" aria-label="Ảnh kỷ niệm: hoàng hôn trên đồi">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0" stop-color="#FFE4EC" />
+      <stop offset=".45" stop-color="#FBD3DD" />
+      <stop offset=".72" stop-color="#F6DFC7" />
+      <stop offset="1" stop-color="#F1CBAE" />
+    </linearGradient>
+    <linearGradient id="hillBack" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0" stop-color="#E7B9C6" />
+      <stop offset="1" stop-color="#D79FB4" />
+    </linearGradient>
+    <linearGradient id="hillFront" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0" stop-color="#C98BA5" />
+      <stop offset="1" stop-color="#A96C8B" />
+    </linearGradient>
+    <radialGradient id="sunGlow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#FFF6E2" />
+      <stop offset=".55" stop-color="#FFE7C2" stop-opacity=".75" />
+      <stop offset="1" stop-color="#FFE7C2" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="300" height="400" fill="url(#sky)" />
+  <circle cx="196" cy="146" r="78" fill="url(#sunGlow)" />
+  <circle cx="196" cy="146" r="36" fill="#FFF4DE" />
+  <path d="M0 286c44-30 78-38 112-26 40 14 62 8 92-8 32-17 66-14 96 6v142H0Z" fill="url(#hillBack)" opacity=".9" />
+  <path d="M0 330c42-26 72-30 104-18 38 14 64 20 96 4 38-19 70-10 100 10v74H0Z" fill="url(#hillFront)" />
+  <path d="M0 366c58-16 96-14 138-4 52 13 98 12 162-6v44H0Z" fill="#8E5B78" opacity=".55" />
+  <g fill="none" stroke="#8B5C72" stroke-width="2" stroke-linecap="round" opacity=".65">
+    <path d="M118 96c6-7 12-7 18 0" />
+    <path d="M140 86c5-6 10-6 15 0" />
+  </g>
+  <g fill="#7C4A68" opacity=".7">
+    <path d="M62 316c0-12 8-20 8-20s8 8 8 20Z" />
+    <path d="M228 306c0-10 7-17 7-17s7 7 7 17Z" />
+  </g>
+</svg>
