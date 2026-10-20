@@ -50,49 +50,48 @@
   width: 128%;
   height: 104%;
   border-radius: 50%;
-  filter: blur(72px);
+  filter: blur(46px);
   pointer-events: none;
   will-change: transform;
-  mix-blend-mode: multiply;
   background: conic-gradient(
     from 0deg,
     rgba(255, 95, 158, 0) 0deg,
-    rgba(255, 95, 158, 0.3) 52deg,
-    rgba(255, 143, 177, 0.26) 118deg,
-    rgba(255, 215, 154, 0.22) 178deg,
-    rgba(185, 140, 255, 0.24) 244deg,
+    rgba(255, 95, 158, 0.4) 52deg,
+    rgba(255, 143, 177, 0.34) 118deg,
+    rgba(255, 215, 154, 0.3) 178deg,
+    rgba(185, 140, 255, 0.32) 244deg,
     rgba(255, 95, 158, 0) 360deg
   );
   animation: dream-aurora 28s linear infinite;
 }
 
 .dream-aurora--violet {
-  opacity: 0.34;
+  opacity: 0.4;
   animation-duration: 38s;
   animation-direction: reverse;
   transform: scale(1.18) rotate(24deg);
 }
 
 .dream-aurora--gold {
-  opacity: 0.28;
+  opacity: 0.34;
   animation-duration: 44s;
   transform: scale(0.92) rotate(-18deg);
   background: conic-gradient(
     from 0deg,
     rgba(255, 215, 154, 0) 0deg,
-    rgba(255, 215, 154, 0.28) 70deg,
-    rgba(255, 233, 196, 0.24) 140deg,
-    rgba(255, 143, 177, 0.2) 220deg,
+    rgba(255, 215, 154, 0.36) 70deg,
+    rgba(255, 233, 196, 0.3) 140deg,
+    rgba(255, 143, 177, 0.26) 220deg,
     rgba(255, 215, 154, 0) 360deg
   );
 }
 
 .dream-shimmer {
   position: absolute;
-  inset: -30%;
+  inset: -12%;
   pointer-events: none;
-  mix-blend-mode: soft-light;
   will-change: transform;
+  opacity: 0.55;
   background: linear-gradient(
     104deg,
     rgba(255, 255, 255, 0) 36%,
@@ -189,7 +188,6 @@
   position: absolute;
   display: block;
   opacity: 0;
-  filter: blur(var(--heart-blur));
   animation: dream-rise var(--rise) linear var(--rise-delay) infinite;
   will-change: transform, opacity;
 }
@@ -219,8 +217,7 @@
   display: block;
   color: var(--spark-tint, #fff);
   opacity: 0;
-  filter: drop-shadow(0 0 6px var(--spark-tint, #fff))
-    drop-shadow(0 0 12px var(--spark-tint, #fff));
+  filter: drop-shadow(0 0 5px var(--spark-tint, #fff));
   transform: translate(-50%, -50%) scale(0.3);
   animation: dream-twinkle var(--twinkle) ease-in-out var(--twinkle-delay)
     infinite;

@@ -37,11 +37,10 @@ const HEART_LAYERS = [
     count: 14,
     seed: 23,
     size: [16, 30],
-    alpha: [0.16, 0.3],
+    alpha: [0.1, 0.2],
     rise: [20, 30],
     sway: [5, 9],
     swayX: [8, 22],
-    blur: 1.4,
     tint: "#efa3c0",
   },
   {
@@ -53,7 +52,6 @@ const HEART_LAYERS = [
     rise: [15, 24],
     sway: [4.5, 8],
     swayX: [14, 34],
-    blur: 0,
     tint: "#e888ae",
   },
   {
@@ -61,11 +59,10 @@ const HEART_LAYERS = [
     count: 7,
     seed: 107,
     size: [62, 104],
-    alpha: [0.12, 0.2],
+    alpha: [0.07, 0.13],
     rise: [12, 19],
     sway: [4, 7],
     swayX: [22, 54],
-    blur: 2.5,
     tint: "#f6bed3",
   },
 ];
@@ -133,7 +130,6 @@ function buildLayers() {
     return {
       key: layer.key,
       tint: layer.tint,
-      blur: layer.blur,
       hearts: Array.from({ length: layer.count }, (_, index) => ({
         id: `${layer.key}-${index}`,
         left: between(random, [3, 95]),
@@ -282,7 +278,6 @@ export default function DreamBackground() {
                 "--sway-x": `${heart.swayX}px`,
                 "--rot": `${heart.rotate}deg`,
                 "--heart-tint": layer.tint,
-                "--heart-blur": `${layer.blur}px`,
               }}
             >
               <span className="dream-heart__sway">

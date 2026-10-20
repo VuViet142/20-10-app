@@ -751,8 +751,11 @@ const CircularCarousel = ({
     };
     wakeRef.current = wake;
 
+    let centerSettled = false;
+
     const measureVisualCenter = () => {
-      if (document.hidden) return;
+      // Đã căn xong thì không đọc layout nữa (tránh ép reflow mỗi khung hình)
+      if (document.hidden || centerSettled) return;
       const rect = root.getBoundingClientRect();
       if (rect.width < 20) return;
       let min = Infinity;
@@ -766,7 +769,10 @@ const CircularCarousel = ({
       }
       if (!Number.isFinite(min) || max - min < 2) return;
       const delta = rect.left + rect.width / 2 - (min + max) / 2;
-      if (Math.abs(delta) < 0.4) return;
+      if (Math.abs(delta) < 0.4) {
+        centerSettled = true;
+        return;
+      }
       centerFix = clamp(centerFix + delta * 0.7, -360, 360);
       wake();
     };
@@ -780,6 +786,7 @@ const CircularCarousel = ({
     };
 
     const resize = new ResizeObserver(() => {
+      centerSettled = false;
       measure();
       wake();
     });
@@ -826,7 +833,8 @@ const CircularCarousel = ({
 
     const centerBoot = window.setTimeout(measureVisualCenter, 160);
     const centerBootLate = window.setTimeout(measureVisualCenter, 1500);
-    const centerTimer = window.setInterval(measureVisualCenter, 260);
+    // 1s thay vì 260ms — giảm mạnh số lần ép layout đồng bộ
+    const centerTimer = window.setInterval(measureVisualCenter, 1000);
 
     return () => {
       cancelAnimationFrame(raf);
